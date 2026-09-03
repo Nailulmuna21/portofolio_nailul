@@ -206,7 +206,7 @@
 
         .hobi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
             max-width: 1100px;
             margin: 0 auto;
@@ -214,7 +214,7 @@
 
         .hobi-card {
             background: var(--bg-card);
-            padding: 30px 20px;
+            padding: 30px 24px;
             border-radius: var(--border-radius);
             text-align: center;
             border: 1px solid rgba(232, 67, 147, 0.08);
@@ -228,20 +228,22 @@
         }
 
         .hobi-card .icon {
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--accent);
             margin-bottom: 12px;
             display: block;
         }
 
         .hobi-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 6px;
+            color: var(--text-primary);
         }
 
         .hobi-card p {
             color: var(--text-secondary);
             font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         /* ========================================
@@ -398,41 +400,49 @@
             <p class="subtitle">Hal-hal yang saya sukai di luar dunia coding</p>
 
             <div class="hobi-grid">
+
+                <!-- 1. CODING & EXPLORING TECHNOLOGY -->
                 <div class="hobi-card">
-                    <span class="icon"><i class="fas fa-code"></i></span>
-                    <h3>Coding Projects</h3>
-                    <p>Membangun aplikasi dan website sebagai projek sampingan untuk mengasah skill.</p>
+                    <span class="icon"><i class="fas fa-laptop-code"></i></span>
+                    <h3>💻 Coding &amp; Exploring Technology</h3>
+                    <p>Menjelajahi teknologi baru dan mengembangkan proyek coding untuk mengasah keterampilan.</p>
                 </div>
 
+                <!-- 2. READING BOOKS -->
                 <div class="hobi-card">
-                    <span class="icon"><i class="fas fa-gamepad"></i></span>
-                    <h3>Bermain Game</h3>
-                    <p>Menikmati game strategi dan RPG untuk refreshing dan melatih logika.</p>
+                    <span class="icon"><i class="fas fa-book-open"></i></span>
+                    <h3>📖 Reading Books</h3>
+                    <p>Membaca buku tentang teknologi, pengembangan diri, dan literatur inspiratif lainnya.</p>
                 </div>
 
+                <!-- 3. LISTENING TO PODCASTS -->
                 <div class="hobi-card">
-                    <span class="icon"><i class="fas fa-headphones"></i></span>
-                    <h3>Mendengarkan Musik</h3>
-                    <p>Menemani aktivitas coding dengan playlist favorit, dari lo-fi hingga rock.</p>
+                    <span class="icon"><i class="fas fa-podcast"></i></span>
+                    <h3>🎙️ Listening to Podcasts</h3>
+                    <p>Mendengarkan podcast tentang teknologi, edukasi, dan wawasan untuk pengembangan diri.</p>
                 </div>
 
+                <!-- 4. WATCHING EDUCATIONAL & TECHNOLOGY CONTENT -->
                 <div class="hobi-card">
-                    <span class="icon"><i class="fas fa-book"></i></span>
-                    <h3>Membaca Buku</h3>
-                    <p>Buku teknologi, novel fiksi, dan artikel tentang pengembangan diri.</p>
+                    <span class="icon"><i class="fas fa-video"></i></span>
+                    <h3>🎬 Watching Educational &amp; Technology Content</h3>
+                    <p>Menonton konten edukasi dan teknologi untuk belajar hal baru dan mengikuti perkembangan.</p>
                 </div>
 
+                <!-- 5. EXPLORING UI/UX DESIGN -->
                 <div class="hobi-card">
-                    <span class="icon"><i class="fas fa-dumbbell"></i></span>
-                    <h3>Olahraga</h3>
-                    <p>Menjaga kesehatan dengan jogging dan olahraga ringan di pagi hari.</p>
+                    <span class="icon"><i class="fas fa-paint-brush"></i></span>
+                    <h3>🎨 Exploring UI/UX Design</h3>
+                    <p>Mempelajari dan bereksperimen dengan desain antarmuka pengguna untuk menciptakan tampilan yang menarik.</p>
                 </div>
 
+                <!-- 6. LEARNING NEW THINGS -->
                 <div class="hobi-card">
-                    <span class="icon"><i class="fas fa-camera"></i></span>
-                    <h3>Fotografi</h3>
-                    <p>Mengabadikan momen dengan kamera, terutama saat traveling.</p>
+                    <span class="icon"><i class="fas fa-brain"></i></span>
+                    <h3>🧠 Learning New Things</h3>
+                    <p>Selalu ingin belajar hal-hal baru, baik dalam teknologi maupun bidang lainnya.</p>
                 </div>
+
             </div>
         </div>
     </section>
