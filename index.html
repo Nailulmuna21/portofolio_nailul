@@ -220,28 +220,21 @@
             background-clip: text;
         }
 
-        .hero-text .typing-text {
-            font-size: 1.8rem;
+        .hero-text .subtitle {
+            font-size: 1.4rem;
             font-weight: 400;
             color: var(--text-secondary);
-            margin-bottom: 16px;
-            min-height: 60px;
+            margin-bottom: 4px;
         }
 
-        .hero-text .typing-text #typing {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .hero-text p {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            max-width: 480px;
-            margin-bottom: 28px;
-        }
-
-        .hero-text p strong {
+        .hero-text .university {
+            font-size: 1.1rem;
             color: var(--accent-light);
+            margin-bottom: 24px;
+        }
+
+        .hero-text .university i {
+            margin-right: 8px;
         }
 
         /* --- Buttons --- */
@@ -407,38 +400,6 @@
             50% {
                 transform: translateY(-12px);
             }
-        }
-
-        /* ========================================
-           STATS
-        ======================================== */
-        .stats {
-            padding: 60px 0;
-            background: var(--bg-secondary);
-            border-top: 1px solid rgba(232, 67, 147, 0.08);
-            border-bottom: 1px solid rgba(232, 67, 147, 0.08);
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2.6rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-item p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-top: 4px;
         }
 
         /* ========================================
@@ -615,11 +576,6 @@
                 bottom: 0%;
                 right: 5%;
             }
-
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -650,9 +606,8 @@
                 font-size: 2.2rem;
             }
 
-            .hero-text .typing-text {
-                font-size: 1.3rem;
-                min-height: 40px;
+            .hero-text .subtitle {
+                font-size: 1.1rem;
             }
 
             .profile-frame {
@@ -698,23 +653,14 @@
                 font-size: 1.8rem;
             }
 
-            .hero-text .typing-text {
-                font-size: 1.1rem;
+            .hero-text .subtitle {
+                font-size: 1rem;
             }
 
             .btn-primary,
             .btn-secondary {
                 padding: 10px 20px;
                 font-size: 0.85rem;
-            }
-
-            .stat-item h3 {
-                font-size: 2rem;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr 1fr;
-                gap: 14px;
             }
         }
     </style>
@@ -747,14 +693,9 @@
         <div class="container hero-container">
             <div class="hero-text">
                 <span class="badge">#TeknikInformatika #Portfolio</span>
-                <h1>Halo, Saya <span class="highlight">Nailul Muna</span></h1>
-                <h2 class="typing-text">Saya adalah <span id="typing"></span></h2>
-                <p>
-                    Perkenalkan, saya Nailul Muna, mahasiswa Teknik Informatika semester 5 
-                    di Universitas Jabal Ghafur. Saya senang belajar hal-hal baru di dunia 
-                    pemrograman dan teknologi, serta tertarik untuk terus mengembangkan 
-                    kemampuan dalam menciptakan solusi digital yang bermanfaat.
-                </p>
+                <h1>Nailul <span class="highlight">Muna</span></h1>
+                <p class="subtitle">Mahasiswa Teknik Informatika</p>
+                <p class="university"><i class="fas fa-university"></i> Universitas Jabal Ghafur</p>
                 <div class="hero-buttons">
                     <a href="projek.html" class="btn-primary">
                         <i class="fas fa-code"></i> Lihat Projek
@@ -789,28 +730,6 @@
                 <div class="floating-badge badge-3">
                     <i class="fab fa-python"></i> Python
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== STATS / COUNTER ===== -->
-    <section class="stats">
-        <div class="container stats-container">
-            <div class="stat-item">
-                <h3><span class="counter" data-target="10">0</span>+</h3>
-                <p>Projek Selesai</p>
-            </div>
-            <div class="stat-item">
-                <h3><span class="counter" data-target="5">0</span>+</h3>
-                <p>Sertifikat</p>
-            </div>
-            <div class="stat-item">
-                <h3><span class="counter" data-target="7">0</span></h3>
-                <p>Kompetensi</p>
-            </div>
-            <div class="stat-item">
-                <h3><span class="counter" data-target="2">0</span></h3>
-                <p>Pengalaman</p>
             </div>
         </div>
     </section>
@@ -856,82 +775,6 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // ========================================
-        // TYPING EFFECT
-        // ========================================
-        const typingElement = document.getElementById('typing');
-        const words = ['Mahasiswa Teknik Informatika', 'Web Enthusiast', 'Belajar Pemrograman', 'Problem Solver'];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function typeEffect() {
-            const currentWord = words[wordIndex];
-
-            if (isDeleting) {
-                typingElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let speed = isDeleting ? 50 : 120;
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                speed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                speed = 500;
-            }
-
-            setTimeout(typeEffect, speed);
-        }
-
-        if (typingElement) {
-            typeEffect();
-        }
-
-        // ========================================
-        // COUNTER ANIMATION
-        // ========================================
-        const counters = document.querySelectorAll('.counter');
-
-        const animateCounter = (counter) => {
-            const target = parseInt(counter.getAttribute('data-target'));
-            let current = 0;
-            const increment = Math.ceil(target / 60);
-
-            const updateCounter = () => {
-                current += increment;
-                if (current >= target) {
-                    counter.textContent = target;
-                    return;
-                }
-                counter.textContent = current;
-                setTimeout(updateCounter, 30);
-            };
-            updateCounter();
-        };
-
-        const observerOptions = {
-            threshold: 0.5,
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;
-                    animateCounter(counter);
-                    observer.unobserve(counter);
-                }
-            });
-        }, observerOptions);
-
-        counters.forEach(counter => observer.observe(counter));
-
         // ========================================
         // NAVBAR SCROLL EFFECT
         // ========================================
