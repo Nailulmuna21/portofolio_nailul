@@ -8,7 +8,6 @@
     <style>
         /* ========================================
            RESET & VARIABLES - WARNA PINK + UNGU
-           (SAMA DENGAN HOME, PROFIL, PENDIDIKAN)
         ======================================== */
         * {
             margin: 0;
@@ -205,6 +204,7 @@
             margin-bottom: 40px;
         }
 
+        /* ===== SKILLS GRID ===== */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -215,59 +215,78 @@
 
         .skill-card {
             background: var(--bg-card);
-            padding: 24px 28px;
+            padding: 28px 24px 24px;
             border-radius: var(--border-radius);
             border: 1px solid rgba(232, 67, 147, 0.08);
             transition: var(--transition);
+            text-align: center;
         }
 
         .skill-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
             border-color: rgba(232, 67, 147, 0.25);
             box-shadow: var(--shadow);
         }
 
-        .skill-card .skill-header {
+        /* Ikon di atas card */
+        .skill-card .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(232, 67, 147, 0.1);
             display: flex;
             align-items: center;
-            gap: 14px;
-            margin-bottom: 12px;
-        }
-
-        .skill-card .skill-header i {
-            font-size: 2rem;
+            justify-content: center;
+            margin: 0 auto 14px;
+            font-size: 1.8rem;
             color: var(--accent);
-            width: 40px;
-            text-align: center;
+            border: 2px solid rgba(232, 67, 147, 0.1);
+            transition: var(--transition);
         }
 
-        .skill-card .skill-header h3 {
-            font-size: 1.1rem;
-        }
-
-        .skill-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 50px;
-            overflow: hidden;
-            margin-top: 6px;
-        }
-
-        .skill-bar .fill {
-            height: 100%;
-            border-radius: 50px;
+        .skill-card:hover .icon-wrapper {
             background: var(--gradient);
-            width: 0%;
-            transition: width 1.5s ease;
+            color: #fff;
+            border-color: var(--accent);
         }
 
-        .skill-card .percent {
-            display: block;
-            text-align: right;
+        .skill-card .category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        /* ===== TECH TAGS ===== */
+        .skill-card .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .skill-card .tech-tags span {
+            display: inline-block;
+            padding: 4px 14px;
+            background: rgba(232, 67, 147, 0.08);
+            border: 1px solid rgba(232, 67, 147, 0.1);
+            border-radius: 50px;
             font-size: 0.8rem;
             color: var(--text-secondary);
-            margin-top: 4px;
+            transition: var(--transition);
+        }
+
+        .skill-card .tech-tags span:hover {
+            background: rgba(232, 67, 147, 0.15);
+            border-color: var(--accent);
+            color: var(--text-primary);
         }
 
         /* ========================================
@@ -376,7 +395,9 @@
                 grid-template-columns: 1fr;
                 max-width: 400px;
             }
-
+            .skill-card {
+                padding: 22px 16px;
+            }
             .nav-links {
                 flex-wrap: wrap;
                 gap: 10px;
@@ -424,85 +445,78 @@
             <p class="subtitle">Teknologi dan tools yang saya kuasai sebagai Mahasiswa Teknik Informatika</p>
 
             <div class="skills-grid">
-                <!-- HTML -->
+
+                <!-- ===== FRONTEND ===== -->
                 <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fab fa-html5"></i>
-                        <h3>HTML5</h3>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-laptop-code"></i>
                     </div>
-                    <div class="skill-bar"><div class="fill" data-width="90"></div></div>
-                    <span class="percent">90%</span>
+                    <span class="category">⚡ Frontend</span>
+                    <h3>Frontend Development</h3>
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Responsive Web Design</span>
+                    </div>
                 </div>
 
-                <!-- CSS -->
+                <!-- ===== BACKEND ===== -->
                 <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fab fa-css3-alt"></i>
-                        <h3>CSS3</h3>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-server"></i>
                     </div>
-                    <div class="skill-bar"><div class="fill" data-width="85"></div></div>
-                    <span class="percent">85%</span>
+                    <span class="category">⚙️ Backend & Database</span>
+                    <h3>Backend Development</h3>
+                    <div class="tech-tags">
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                        <span>phpMyAdmin</span>
+                    </div>
                 </div>
 
-                <!-- JavaScript -->
+                <!-- ===== PROGRAMMING ===== -->
                 <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fab fa-js"></i>
-                        <h3>JavaScript</h3>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-code"></i>
                     </div>
-                    <div class="skill-bar"><div class="fill" data-width="78"></div></div>
-                    <span class="percent">78%</span>
+                    <span class="category">🧠 Programming</span>
+                    <h3>Programming</h3>
+                    <div class="tech-tags">
+                        <span>Python</span>
+                        <span>OOP</span>
+                        <span>Algorithm & Programming</span>
+                    </div>
                 </div>
 
-                <!-- React -->
+                <!-- ===== UI/UX ===== -->
                 <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fab fa-react"></i>
-                        <h3>React.js</h3>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-pencil-ruler"></i>
                     </div>
-                    <div class="skill-bar"><div class="fill" data-width="70"></div></div>
-                    <span class="percent">70%</span>
+                    <span class="category">🎨 UI/UX</span>
+                    <h3>UI/UX Design</h3>
+                    <div class="tech-tags">
+                        <span>UI Design</span>
+                        <span>User Experience</span>
+                        <span>Wireframing</span>
+                    </div>
                 </div>
 
-                <!-- Laravel -->
+                <!-- ===== TOOLS ===== -->
                 <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fab fa-laravel"></i>
-                        <h3>Laravel</h3>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-tools"></i>
                     </div>
-                    <div class="skill-bar"><div class="fill" data-width="65"></div></div>
-                    <span class="percent">65%</span>
+                    <span class="category">🔧 Tools</span>
+                    <h3>Tools & Environment</h3>
+                    <div class="tech-tags">
+                        <span>VS Code</span>
+                        <span>XAMPP</span>
+                        <span>Laragon</span>
+                    </div>
                 </div>
 
-                <!-- Flutter -->
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h3>Flutter</h3>
-                    </div>
-                    <div class="skill-bar"><div class="fill" data-width="60"></div></div>
-                    <span class="percent">60%</span>
-                </div>
-
-                <!-- Git -->
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fab fa-git-alt"></i>
-                        <h3>Git &amp; GitHub</h3>
-                    </div>
-                    <div class="skill-bar"><div class="fill" data-width="80"></div></div>
-                    <span class="percent">80%</span>
-                </div>
-
-                <!-- Figma -->
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <i class="fab fa-figma"></i>
-                        <h3>Figma</h3>
-                    </div>
-                    <div class="skill-bar"><div class="fill" data-width="72"></div></div>
-                    <span class="percent">72%</span>
-                </div>
             </div>
         </div>
     </section>
@@ -589,25 +603,6 @@
                     span.style.opacity = '1';
                 });
             });
-        });
-
-        // ========================================
-        // SKILL BAR ANIMATION
-        // ========================================
-        document.addEventListener('DOMContentLoaded', () => {
-            const fills = document.querySelectorAll('.fill');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const fill = entry.target;
-                        const width = fill.getAttribute('data-width');
-                        fill.style.width = width + '%';
-                        observer.unobserve(fill);
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            fills.forEach(fill => observer.observe(fill));
         });
 
         console.log('🌸 Portfolio Nailul Muna - Keahlian siap digunakan!');
