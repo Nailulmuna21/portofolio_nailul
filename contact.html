@@ -179,11 +179,82 @@
            CONTACT SECTION
         ======================================== */
         .contact-section {
+            position: relative;
+            overflow: hidden;
             padding: 120px 0 60px;
             min-height: 100vh;
             background: radial-gradient(ellipse at 30% 50%, rgba(232, 67, 147, 0.05), transparent 60%),
                 radial-gradient(ellipse at 70% 80%, rgba(108, 92, 231, 0.04), transparent 50%);
         }
+        ..contact-section > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Dekorasi background: blob glow, titik, garis gelombang (SAMA SEPERTI HOME) --- */
+        .bg-decor {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0.45;
+        }
+
+        .blob-1 {
+            width: 420px;
+            height: 420px;
+            top: -140px;
+            right: -120px;
+            background: radial-gradient(circle, var(--accent), transparent 70%);
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -160px;
+            left: -140px;
+            background: radial-gradient(circle, var(--purple), transparent 70%);
+        }
+
+        .bg-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            box-shadow: 0 0 14px 3px var(--accent-glow);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .dot-1 { top: 9%; left: 3%; animation-delay: 0s; }
+        .dot-2 { top: 16%; right: 8%; width: 9px; height: 9px; background: var(--purple-light); box-shadow: 0 0 16px 4px var(--purple-glow); animation-delay: .6s; }
+        .dot-3 { top: 48%; right: 3%; animation-delay: 1.2s; }
+        .dot-4 { bottom: 14%; left: 42%; width: 5px; height: 5px; animation-delay: 1.8s; }
+        .dot-5 { top: 62%; left: 5%; width: 5px; height: 5px; background: var(--purple-light); box-shadow: 0 0 14px 3px var(--purple-glow); animation-delay: 2.4s; }
+        .dot-6 { bottom: 32%; right: 14%; width: 7px; height: 7px; animation-delay: 3s; }
+        .dot-7 { top: 30%; left: 12%; width: 4px; height: 4px; animation-delay: 3.6s; }
+
+        .bg-wave {
+            position: absolute;
+            bottom: -30px;
+            left: -80px;
+            width: 520px;
+            max-width: 60vw;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
 
         .contact-section h1 {
             font-size: 2.5rem;
@@ -374,6 +445,32 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(13, 13, 26, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 30px 20px;
+                gap: 16px;
+                transform: translateY(-150%);
+                transition: var(--transition);
+                border-bottom: 1px solid rgba(232, 67, 147, 0.1);
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+            }
+
+        }
+
         @media (max-width: 600px) {
             .contact-section {
                 padding: 100px 0 40px;
@@ -435,6 +532,22 @@
 
     <!-- ===== CONTACT SECTION ===== -->
     <section class="contact-section">
+        <!-- Dekorasi background: blob glow + titik + garis gelombang (SAMA SEPERTI HOME) -->
+        <div class="bg-decor">
+            <div class="bg-blob blob-1"></div>
+            <div class="bg-blob blob-2"></div>
+            <span class="bg-dot dot-1"></span>
+            <span class="bg-dot dot-2"></span>
+            <span class="bg-dot dot-3"></span>
+            <span class="bg-dot dot-4"></span>
+            <span class="bg-dot dot-5"></span>
+            <span class="bg-dot dot-6"></span>
+            <span class="bg-dot dot-7"></span>
+            <svg class="bg-wave" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,100 C100,150 150,50 250,100 C350,150 400,50 500,100" stroke="#e84393" stroke-width="1.5" fill="none"/>
+                <path d="M0,130 C100,180 150,80 250,130 C350,180 400,80 500,130" stroke="#6c5ce7" stroke-width="1.5" fill="none"/>
+            </svg>
+        </div>
         <div class="container">
             <h1>Hubungi <span>Saya</span></h1>
             <p class="subtitle">Pilih salah satu kontak di bawah ini untuk menghubungi saya!</p>

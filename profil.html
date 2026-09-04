@@ -519,6 +519,29 @@
         }
 
         @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(13, 13, 26, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 30px 20px;
+                gap: 16px;
+                transform: translateY(-150%);
+                transition: var(--transition);
+                border-bottom: 1px solid rgba(232, 67, 147, 0.1);
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+            }
+
             .profil-section {
                 padding: 100px 0 40px;
             }
