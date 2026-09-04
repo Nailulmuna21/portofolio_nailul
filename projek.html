@@ -477,26 +477,46 @@
         ======================================== */
         @media (max-width: 768px) {
             .hamburger {
-                display: flex;
+                display: none;
+            }
+
+            .nav-container {
+                flex-wrap: nowrap;
+            }
+
+            .logo {
+                flex-shrink: 0;
             }
 
             .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: rgba(13, 13, 26, 0.98);
-                backdrop-filter: blur(12px);
-                flex-direction: column;
-                padding: 30px 20px;
-                gap: 16px;
-                transform: translateY(-150%);
-                transition: var(--transition);
-                border-bottom: 1px solid rgba(232, 67, 147, 0.1);
+                flex: 1 1 auto;
+                min-width: 0;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                gap: 22px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                scrollbar-color: var(--accent) transparent;
+                padding-bottom: 6px;
+                margin-left: 16px;
             }
 
-            .nav-menu.active {
-                transform: translateY(0);
+            .nav-menu li {
+                flex-shrink: 0;
+            }
+
+            .nav-menu a {
+                white-space: nowrap;
+            }
+
+            .nav-menu::-webkit-scrollbar {
+                height: 4px;
+            }
+
+            .nav-menu::-webkit-scrollbar-thumb {
+                background: var(--accent);
+                border-radius: 10px;
             }
 
             .projek-section {
