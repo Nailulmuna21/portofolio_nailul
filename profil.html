@@ -177,16 +177,84 @@
         }
 
         /* ========================================
-           PROFIL SECTION
+           PROFIL SECTION - BACKGROUND SAMA DENGAN HOME
         ======================================== */
         .profil-section {
             padding: 120px 0 60px;
             min-height: 100vh;
-            background: radial-gradient(ellipse at 30% 50%, rgba(232, 67, 147, 0.05), transparent 60%),
-                radial-gradient(ellipse at 70% 80%, rgba(108, 92, 231, 0.04), transparent 50%);
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 30% 50%, rgba(232, 67, 147, 0.08), transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(108, 92, 231, 0.06), transparent 50%);
+        }
+
+        /* --- Dekorasi background: blob glow, titik, garis gelombang (SAMA SEPERTI HOME) --- */
+        .bg-decor {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0.45;
+        }
+
+        .blob-1 {
+            width: 420px;
+            height: 420px;
+            top: -140px;
+            right: -120px;
+            background: radial-gradient(circle, var(--accent), transparent 70%);
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -160px;
+            left: -140px;
+            background: radial-gradient(circle, var(--purple), transparent 70%);
+        }
+
+        .bg-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            box-shadow: 0 0 14px 3px var(--accent-glow);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .dot-1 { top: 9%; left: 3%; animation-delay: 0s; }
+        .dot-2 { top: 16%; right: 8%; width: 9px; height: 9px; background: var(--purple-light); box-shadow: 0 0 16px 4px var(--purple-glow); animation-delay: .6s; }
+        .dot-3 { top: 48%; right: 3%; animation-delay: 1.2s; }
+        .dot-4 { bottom: 14%; left: 42%; width: 5px; height: 5px; animation-delay: 1.8s; }
+        .dot-5 { top: 62%; left: 5%; width: 5px; height: 5px; background: var(--purple-light); box-shadow: 0 0 14px 3px var(--purple-glow); animation-delay: 2.4s; }
+        .dot-6 { bottom: 32%; right: 14%; width: 7px; height: 7px; animation-delay: 3s; }
+        .dot-7 { top: 30%; left: 12%; width: 4px; height: 4px; animation-delay: 3.6s; }
+
+        .bg-wave {
+            position: absolute;
+            bottom: -30px;
+            left: -80px;
+            width: 520px;
+            max-width: 60vw;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
         }
 
         .profil-container {
+            position: relative;
+            z-index: 1;
             display: grid;
             grid-template-columns: 320px 1fr;
             gap: 50px;
@@ -507,6 +575,23 @@
 
     <!-- ===== PROFIL SECTION ===== -->
     <section class="profil-section">
+        <!-- Dekorasi background: blob glow + titik + garis gelombang (SAMA SEPERTI HOME) -->
+        <div class="bg-decor">
+            <div class="bg-blob blob-1"></div>
+            <div class="bg-blob blob-2"></div>
+            <span class="bg-dot dot-1"></span>
+            <span class="bg-dot dot-2"></span>
+            <span class="bg-dot dot-3"></span>
+            <span class="bg-dot dot-4"></span>
+            <span class="bg-dot dot-5"></span>
+            <span class="bg-dot dot-6"></span>
+            <span class="bg-dot dot-7"></span>
+            <svg class="bg-wave" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,100 C100,150 150,50 250,100 C350,150 400,50 500,100" stroke="#e84393" stroke-width="1.5" fill="none"/>
+                <path d="M0,130 C100,180 150,80 250,130 C350,180 400,80 500,130" stroke="#6c5ce7" stroke-width="1.5" fill="none"/>
+            </svg>
+        </div>
+
         <div class="container profil-container">
 
             <!-- ===== KARTU KIRI ===== -->
@@ -571,38 +656,39 @@
                 <span class="sub-role">💻 Mahasiswa Teknik Informatika | Universitas Jabal Ghafur</span>
 
                 <p>
-                    Saya <strong>Nailul Muna</strong>, mahasiswa <strong>Teknik Informatika semester 5</strong> di 
-                    <strong>Universitas Jabal Ghafur (UNIGHA), Sigli, Aceh</strong>. Saya memiliki ketertarikan pada 
+                    Saya <strong>Nailul Muna</strong>, mahasiswa <strong>Teknik Informatika semester 5</strong> di
+                    <strong>Universitas Jabal Ghafur (UNIGHA), Sigli, Aceh</strong>. Saya memiliki ketertarikan pada
                     <strong>Web Development</strong>, khususnya <strong>Frontend Development dan UI/UX Design</strong>.
                 </p>
 
                 <p>
-                    Selama perkuliahan, saya aktif mengerjakan berbagai proyek pengembangan perangkat lunak, baik secara individu 
-                    maupun dalam tim. Melalui berbagai proyek tersebut, saya terus mengembangkan kemampuan dalam mengubah ide dan 
+                    Selama perkuliahan, saya aktif mengerjakan berbagai proyek pengembangan perangkat lunak, baik secara individu
+                    maupun dalam tim. Melalui berbagai proyek tersebut, saya terus mengembangkan kemampuan dalam mengubah ide dan
                     kebutuhan pengguna menjadi website yang <strong>fungsional, responsif, dan mudah digunakan</strong>.
                 </p>
 
                 <p>
-                    Saya memiliki pengalaman menggunakan beberapa teknologi seperti <strong>HTML, CSS, JavaScript, PHP, MySQL, dan Python</strong>. Saya juga tertarik untuk terus memperdalam kemampuan dalam desain antarmuka 
+                    Saya memiliki pengalaman menggunakan beberapa teknologi seperti <strong>HTML, CSS, JavaScript, PHP, MySQL,
+                    Bootstrap, dan Python</strong>. Saya juga tertarik untuk terus memperdalam kemampuan dalam desain antarmuka
                     dan pengembangan website modern.
                 </p>
 
                 <p>
-                    Bagi saya, website yang baik bukan hanya tentang bagaimana kode ditulis, tetapi juga tentang bagaimana sebuah 
+                    Bagi saya, website yang baik bukan hanya tentang bagaimana kode ditulis, tetapi juga tentang bagaimana sebuah
                     produk dapat memberikan <strong>pengalaman yang nyaman dan solusi yang bermanfaat bagi penggunanya</strong>.
                 </p>
 
                 <div class="highlight-box">
                     <p>
                         <i class="fas fa-quote-left"></i>
-                        "Menjadi seorang software engineer bukan hanya tentang menulis kode, tetapi tentang 
+                        "Menjadi seorang software engineer bukan hanya tentang menulis kode, tetapi tentang
                         <strong>memahami masalah</strong> dan menciptakan solusi yang <strong>bermanfaat</strong>."
                     </p>
                 </div>
 
                 <p style="margin-top: 20px;">
-                    Ke depannya, saya ingin berkembang menjadi <strong>Frontend Developer profesional</strong> yang mampu 
-                    membangun produk digital berkualitas, sekaligus terus meningkatkan kemampuan teknis, desain, dan kolaborasi 
+                    Ke depannya, saya ingin berkembang menjadi <strong>Frontend Developer profesional</strong> yang mampu
+                    membangun produk digital berkualitas, sekaligus terus meningkatkan kemampuan teknis, desain, dan kolaborasi
                     dalam tim.
                 </p>
             </div>
